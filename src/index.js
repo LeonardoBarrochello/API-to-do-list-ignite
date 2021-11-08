@@ -75,8 +75,8 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
       return response.status(404).json({error: "todo not found!"})
   }
   todo.title = title;
-  todo.deadline = deadline;
-  return response.status(201).send()
+  todo.deadline = new Date(deadline);
+  return response.json(todo)
 
 });
 
